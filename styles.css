@@ -6,6 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* スクロールバーを隠す */
 }
 
 #screen {
@@ -66,7 +67,9 @@ body {
     margin: 10px;
     cursor: pointer;
     text-align: center;
-    display: block; /* ブロック要素として表示 */
+    display: inline-block; /* インラインブロックで配置 */
+    width: calc(100% - 40px); /* ボタンの幅を調整 */
+    box-sizing: border-box; /* ボックスサイズを調整 */
 }
 
 #close-button {
