@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS 22ブラウザ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="screen">
+        <div id="lock-screen">
+            <div id="lock-content">
+                <span id="battery">🔋 85%</span>
+                <button id="unlock-button">ロック解除</button>
+            </div>
+        </div>
+        <div id="app-screen">
+            <div class="app-button" onclick="openApp('calculator')">電卓</div>
+            <div class="app-button" onclick="openApp('browser')">ブラウザ</div>
+            <div class="app-button" onclick="openApp('camera')">カメラ</div>
+            <div class="app-button" onclick="openApp('dictionary')">辞書</div>
+            <div class="app-button" onclick="openApp('notes')">メモ</div>
+            <div class="app-button" onclick="openApp('paint')">ペイント</div>
+            <div class="app-button" onclick="openApp('music')">音楽</div>
+            <div id="close-button" onclick="closeApp()">✖️</div>
+            <div id="app-content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
