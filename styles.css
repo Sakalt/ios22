@@ -73,6 +73,7 @@ body {
     width: calc(100% - 40px);
     box-sizing: border-box;
     z-index: 3;
+    position: relative; /* Ensures buttons are on top */
 }
 
 #close-button {
@@ -86,10 +87,10 @@ body {
 
 #app-content {
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 60px); /* Adjust height for space needed */
     overflow: auto;
     position: absolute;
-    top: 40px;
+    top: 60px; /* Adjust for space needed */
     left: 0;
     background: white;
     z-index: 2;
@@ -128,16 +129,6 @@ body {
 
 #weather-widget {
     font-size: 16px;
-}
-
-#browser {
-    width: 100%;
-    height: calc(100% - 40px);
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 #browser-bar {
