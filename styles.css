@@ -28,7 +28,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1; /* ロック画面が最前面に表示されるように設定 */
+    z-index: 2; /* ロック画面が最前面に表示されるように設定 */
 }
 
 #lock-content {
@@ -58,7 +58,7 @@ body {
     overflow: hidden;
     padding: 20px; /* 内側に余白を追加 */
     box-sizing: border-box;
-    z-index: 2; /* アプリ画面がロック画面の後ろに表示されるように設定 */
+    z-index: 1; /* アプリ画面がロック画面の後ろに表示されるように設定 */
 }
 
 .app-button {
@@ -92,5 +92,5 @@ body {
     top: 40px;
     left: 0;
     background: white; /* アプリコンテンツの背景色 */
-    z-index: 3; /* アプリコンテンツがアプリ画面内で前面に表示されるように設定 */
+    z-index: 2; /* アプリコンテンツがアプリ画面内で前面に表示されるように設定 */
 }
