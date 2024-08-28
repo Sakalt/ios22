@@ -1,1 +1,1 @@
-https://sakalt.github.io/sirialgame
+https://sakalt.github.io/sirialgame/app.html
