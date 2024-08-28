@@ -10,7 +10,7 @@ function saveCoinCount() {
 
 // ローカルストレージからコイン数を読み込む
 function loadCoinCount() {
-    return parseInt(localStorage.getItem('coinCount')) || 0; // 保存されていない場合は0
+    return parseInt(localStorage.getItem('coinCount')) || 65; // 保存されていない場合は0
 }
 
 // 食べ物プリンターを使うボタンの処理
