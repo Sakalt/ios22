@@ -60,7 +60,7 @@ function getRandomColor() {
 
 // シリアルを売る処理
 document.getElementById('sell-button').addEventListener('click', () => {
-    const sellAmount = serials.length * 5; // シリアル1つにつき5コイン
+    const sellAmount = serials.length * 0.6; // シリアル1つにつき5コイン
     coinCount += sellAmount;
     document.getElementById('coin-count').innerText = coinCount;
     saveCoinCount(); // コインの数を保存
