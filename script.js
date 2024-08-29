@@ -41,9 +41,10 @@ function createSerial() {
     // シリアルの動きに関する変数
     let positionX = parseFloat(serial.style.left);
     let positionY = 0;
-    let speedX = (Math.random() - 0.5) * 2; // 横方向の初期速度（-1から1の範囲）
-    let speedY = 2; // 縦方向の速度
+    let speedX = (Math.random() - 0.5) * 4; // 横方向の初期速度
+    let speedY = (Math.random() - 0.5) * 4; // 縦方向の初期速度
     const boxWidth = document.getElementById('box').clientWidth;
+    const boxHeight = document.getElementById('box').clientHeight;
 
     // 落下アニメーション
     const drop = setInterval(() => {
@@ -57,8 +58,30 @@ function createSerial() {
             speedX = -speedX; // 壁にぶつかったら反転
         }
 
-        // 底との衝突判定
-        if (positionY >= 280) {
+        if (positionY <= 0 || positionY >= boxHeight - serial.clientHeight) {
+            speedY = -speedY; // 底にぶつかったら反転
+        }
+
+        // 他のシリアルとの衝突判定
+        serials.forEach(otherSerial => {
+            if (serial !== otherSerial) {
+                const otherX = parseFloat(otherSerial.style.left);
+                const otherY = parseFloat(otherSerial.style.top);
+                const dx = positionX - otherX;
+                const dy = positionY - otherY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // シリアル同士の衝突判定
+                if (distance < serial.clientWidth) {
+                    // 反発する処理
+                    speedX = -speedX;
+                    speedY = -speedY;
+                }
+            }
+        });
+
+        // 底に到達した場合、アニメーションを終了
+        if (positionY >= boxHeight - serial.clientHeight) {
             clearInterval(drop);
         }
     }, 20);
