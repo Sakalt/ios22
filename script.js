@@ -38,13 +38,27 @@ function createSerial() {
     serial.style.top = '0px';
     document.getElementById('box').appendChild(serial);
 
-    // 落下アニメーション
-    let position = 0;
-    const drop = setInterval(() => {
-        position += 2;
-        serial.style.top = `${position}px`;
+    // シリアルの動きに関する変数
+    let positionX = parseFloat(serial.style.left);
+    let positionY = 0;
+    let speedX = (Math.random() - 0.5) * 2; // 横方向の初期速度（-1から1の範囲）
+    let speedY = 2; // 縦方向の速度
+    const boxWidth = document.getElementById('box').clientWidth;
 
-        if (position >= 280) {
+    // 落下アニメーション
+    const drop = setInterval(() => {
+        positionX += speedX;
+        positionY += speedY;
+        serial.style.left = `${positionX}px`;
+        serial.style.top = `${positionY}px`;
+
+        // 壁との衝突判定
+        if (positionX <= 0 || positionX >= boxWidth - serial.clientWidth) {
+            speedX = -speedX; // 壁にぶつかったら反転
+        }
+
+        // 底との衝突判定
+        if (positionY >= 280) {
             clearInterval(drop);
         }
     }, 20);
