@@ -10,7 +10,7 @@ function saveCoinCount() {
 
 // ローカルストレージからコイン数を読み込む
 function loadCoinCount() {
-    return parseInt(localStorage.getItem('coinCount')) || 65; // 保存されていない場合は0
+    return parseInt(localStorage.getItem('coinCount')) || 65; // 保存されていない場合は65
 }
 
 // 食べ物プリンターを使うボタンの処理
@@ -84,7 +84,7 @@ function createSerial() {
         if (positionY >= boxHeight - serial.clientHeight) {
             clearInterval(drop);
         }
-    }, 20);
+    }, 10); // 10ミリ秒ごとに更新
 
     serials.push(serial);
 }
@@ -97,7 +97,7 @@ function getRandomColor() {
 
 // シリアルを売る処理
 document.getElementById('sell-button').addEventListener('click', () => {
-    const sellAmount = serials.length * 0.6; // シリアル1つにつき5コイン
+    const sellAmount = serials.length * 0.6; // シリアル1つにつき0.6コイン
     coinCount += sellAmount;
     document.getElementById('coin-count').innerText = coinCount;
     saveCoinCount(); // コインの数を保存
